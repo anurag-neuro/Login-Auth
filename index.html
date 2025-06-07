@@ -150,16 +150,31 @@
 
     // === Handle Social Login Popup (Google, GitHub, Facebook) ===
     async function loginWithProvider(provider) {
-      const { data, error } = await supabase.auth.signInWithOAuth({
-        provider,
-        options: {
-          redirectTo: window.location.origin + "/dashboard.html",
-        }
-      });
-      if (error) {
-        alert("OAuth failed: " + error.message);
-      }
+  const { data, error } = await supabase.auth.signInWithOAuth({
+    provider,
+    options: {
+      skipBrowserRedirect: true
     }
+  });
+
+  if (error) {
+    alert("OAuth failed: " + error.message);
+    return;
+  }
+
+  // Open the returned URL in a popup window
+  const popup = window.open(data.url, '_blank', 'width=500,height=600');
+
+  // Now you need to listen for changes on supabase.auth to detect login
+  supabase.auth.onAuthStateChange((event, session) => {
+    if (event === 'SIGNED_IN') {
+      popup.close();
+      alert("Logged in popup style!");
+      window.location.href = "/dashboard.html";
+    }
+  });
+}
+
   </script>
 </body>
 
