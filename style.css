@@ -1,0 +1,83 @@
+/* styles.css */
+
+body {
+margin: 0;
+padding: 0;
+font-family: 'Red Hat Display', sans-serif;
+background-color: #f7f7fa;
+display: flex;
+justify-content: center;
+align-items: center;
+height: 100vh;
+}
+
+.container {
+background: #ffffff;
+padding: 40px 30px;
+border-radius: 16px;
+box-shadow: 0 12px 40px rgba(0, 0, 0, 0.08);
+width: 100%;
+max-width: 360px;
+box-sizing: border-box;
+}
+
+h2 {
+text-align: center;
+margin-bottom: 24px;
+font-size: 24px;
+font-weight: 600;
+color: #222;
+}
+
+label {
+font-size: 14px;
+color: #444;
+margin-bottom: 6px;
+display: block;
+}
+
+input[type="email"],
+input[type="password"] {
+width: 100%;
+padding: 12px;
+border: 1px solid #ccc;
+border-radius: 10px;
+font-size: 14px;
+margin-bottom: 18px;
+box-sizing: border-box;
+}
+
+input:focus {
+border-color: #6c63ff;
+outline: none;
+}
+
+.auth-btn {
+width: 100%;
+padding: 12px;
+font-size: 16px;
+background-color: #6c63ff;
+color: white;
+border: none;
+border-radius: 10px;
+cursor: pointer;
+transition: background-color 0.3s ease;
+}
+
+.auth-btn:hover {
+background-color: #594cf3;
+}
+
+.toggle-link {
+margin-top: 18px;
+text-align: center;
+font-size: 14px;
+color: #6c63ff;
+cursor: pointer;
+text-decoration: underline;
+transition: color 0.3s;
+}
+
+.toggle-link:hover {
+color: #4b3ee7;
+}
